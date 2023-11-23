@@ -26,3 +26,12 @@ export function createElement(name, props = {}, ...children) {
 
   return element;
 }
+
+//Генератор кода
+const generateCode = (code) => {
+  return () => {
+    return ++code;
+  };
+};
+
+export const nextCodeGenerate = generateCode(7);
