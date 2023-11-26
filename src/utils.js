@@ -28,10 +28,16 @@ export function createElement(name, props = {}, ...children) {
 }
 
 //Генератор кода
-const generateCode = (code) => {
+const generateCode = () => {
+  let code= 0;
   return () => {
     return ++code;
   };
 };
 
-export const nextCodeGenerate = generateCode(7);
+export const nextCodeGenerate = generateCode();
+
+export function declension(number, variants) {
+  return !(number % 20 > 1 && number % 20 < 5) ? variants[0] : variants[1];
+}
+
