@@ -18,8 +18,11 @@
   padding: 20px 10px;
 }
 
-.Item-actions {
+.Item-price,
+.Item-actions,
+.Item-quantity{
   display: flex;
   justify-content: flex-end;
   padding: 20px 20px 20px 10px;
+  text-wrap: nowrap;
 }

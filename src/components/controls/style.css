@@ -1,5 +1,26 @@
+*{
+  box-sizing: border-box;
+}
+
 .Controls {
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 20px 0;
+}
+
+.Controls-value {
+  font-weight: bold;
+}
+
+.Controls-value,
+.Controls-action{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px 0 10px;
+}
+
+.Controls-action{
+  & button {
+  min-width: 75px;
+    }
 }
