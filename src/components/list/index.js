@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import './style.css';
+import Item from "../item";
 
-function List({list, render}) {
+function List(props) {
   return (
     <div className='List'>
-      {list.map(render)}
+      {props.renderItems(props.list)}
     </div>
   )
 }

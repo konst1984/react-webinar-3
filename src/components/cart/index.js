@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {cn as bem} from '@bem-react/classname';
-import './style.css';
-import Item from "../item";
 import List from "../list";
+import CartItem from "../cartItem";
+import {formatterPrice} from "../../utils";
+import './style.css';
 
-function Cart({onCloseModal, list, onDelete}) {
+function Cart({onCloseModal, list,totalPrice}) {
 
   const cn = bem('Cart');
 
-  const totalPrice = list.reduce((acc, item) => acc + item.price * item.quantity ,0)
+  const renderItems = (data) => data.map(item => <CartItem key={item.code} item={item}/>)
 
   return (
     <div className='Cart'>
@@ -18,20 +19,11 @@ function Cart({onCloseModal, list, onDelete}) {
         <button onClick={onCloseModal}>Закрыть</button>
       </div>
       <div className={cn('body')}>
-        <List list={list}
-              render={(item) => (
-                <div key={item.code} className='List-item'>
-                  <Item item={item} onClick={onDelete} actionTitle ='Удалить'>
-                    <div className='Item-quantity'>{item.quantity} шт.</div>
-                  </Item>
-                </div>
-              )}/>
+        <List list={list} renderItems={renderItems}/>
       </div>
       <div className={cn('footer')}>
-        <span></span>
-        <span></span>
-        <span>Итого</span>
-        <span>{totalPrice} ₽</span>
+        <span className={cn('footer__total')}>Итого</span>
+        <span>{formatterPrice.format(totalPrice)}</span>
         <span></span>
       </div>
     </div>

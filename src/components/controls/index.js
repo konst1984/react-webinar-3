@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {cn as bem} from '@bem-react/classname';
-import {plural} from "../../utils";
+import {formatterPrice, plural} from "../../utils";
 import './style.css';
 
-function Controls({onOpen, modalId, count, total}) {
+function Controls(props) {
 
   const cn = bem('Controls');
 
@@ -12,14 +12,14 @@ function Controls({onOpen, modalId, count, total}) {
     <div className='Controls'>
       <span>В корзине: </span>
       <span className={cn('value')}>
-        {count ? `${count} ${plural(count, {
+        {props.countProducts ? `${props.countProducts} ${plural(props.countProducts, {
           one: 'товар',
           few: 'товара',
           many: 'товаров'
-        })} /  ${total} ₽` : 'пусто'}
+        })} /  ${formatterPrice.format(props.totalPrice)}` : 'пусто'}
       </span>
       <div className={cn('action')}>
-        <button onClick={() => onOpen(modalId)}>Перейти</button>
+        <button onClick={() => props.onOpen(props.modalId)}>Перейти</button>
       </div>
     </div>
   )
@@ -39,4 +39,4 @@ Controls.defaultProps = {
   onOpen: () => {}
 }
 
-export default React.memo(Controls);
+export default Controls;

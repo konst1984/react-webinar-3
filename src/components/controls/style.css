@@ -1,6 +1,3 @@
-*{
-  box-sizing: border-box;
-}
 
 .Controls {
   display: flex;
@@ -12,15 +9,16 @@
   font-weight: bold;
 }
 
-.Controls-value,
+.Controls-value{
+  padding: 0 12px 0 14px;
+}
+
 .Controls-action{
   display: flex;
   justify-content: flex-end;
   padding: 0 20px 0 10px;
 }
 
-.Controls-action{
-  & button {
-  min-width: 75px;
-    }
+.Controls-action button{
+  min-width: 80px;
 }

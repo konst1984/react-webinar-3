@@ -1,27 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import './style.css';
+import {store} from "../../index";
+import {formatterPrice} from "../../utils";
 
 function Item(props) {
 
   const callbacks = {
     onClick: () => {
-      props.onClick(props.item.code);
+      store.onAddItem(props.item.code);
     },
   }
 
   return (
-    <div className='Item'>
-      <div className='Item-code'>{props.item.code}</div>
-      <div className='Item-title'>
-        {props.item.title}
-      </div>
-      <div className='Item-price'>{props.item.price} ₽</div>
-      {props.children}
-      <div className='Item-actions'>
-        <button onClick={callbacks.onClick}>
-          {props.actionTitle}
-        </button>
+    <div className='List-item'>
+      <div className='Item'>
+        <div className='Item-code'>{props.item.code}</div>
+        <div className='Item-title'>
+          {props.item.title}
+        </div>
+        <div className='Item-price'>{formatterPrice.format(props.item.price)}</div>
+        {props.children}
+        <div className='Item-actions'>
+          <button onClick={callbacks.onClick}>
+            Добавить
+          </button>
+        </div>
       </div>
     </div>
   );

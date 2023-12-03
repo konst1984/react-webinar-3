@@ -3,6 +3,7 @@ body {
   padding: 0;
   background: #535353;
   font-family: sans-serif;
+  font-size: 18px;
 }
 
 .PageLayout {
@@ -12,4 +13,9 @@ body {
   background: #fff;
   box-sizing: border-box;
   box-shadow: 0 0 15px 5px #0000003b;
+}
+
+button{
+  font-size: 13px;
+  min-width: 76px;
 }
