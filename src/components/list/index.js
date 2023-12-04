@@ -13,14 +13,14 @@ function List(props) {
 
 List.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape({
-    code: PropTypes.number
+    code: PropTypes.number,
+    title: PropTypes.string
   })).isRequired,
-  render: PropTypes.func,
+  renderItems: PropTypes.func,
 };
 
 List.defaultProps = {
-  render: () => {
-  }
+  renderItems: () => {}
 }
 
 export default List;

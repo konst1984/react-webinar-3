@@ -6,7 +6,6 @@ import PageLayout from "./components/page-layout";
 import Modal from "./components/modal";
 import Cart from "./components/cart";
 import Item from "./components/item";
-import CartItem from "./components/cartItem";
 
 /**
  * Приложение

@@ -31,7 +31,19 @@ function Cart({onCloseModal, list,totalPrice}) {
 }
 
 Cart.propTypes = {
-  onClose: PropTypes.func,
+  onCloseModal: PropTypes.func,
+  totalPrice: PropTypes.number,
+  list:PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    price: PropTypes.number,
+    quantity: PropTypes.number
+  }))
 };
+
+Cart.defaultProps = {
+  list: [],
+  onCloseModal: () => {},
+  totalPrice: 0
+}
 
 export default Cart;

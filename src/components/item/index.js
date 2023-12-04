@@ -20,7 +20,6 @@ function Item(props) {
           {props.item.title}
         </div>
         <div className='Item-price'>{formatterPrice.format(props.item.price)}</div>
-        {props.children}
         <div className='Item-actions'>
           <button onClick={callbacks.onClick}>
             Добавить
@@ -35,16 +34,8 @@ Item.propTypes = {
   item: PropTypes.shape({
     code: PropTypes.number,
     title: PropTypes.string,
-    count: PropTypes.number
+    price: PropTypes.number
   }).isRequired,
-  actionTitle: PropTypes.string,
-  children: PropTypes.node,
-  onClick: PropTypes.func,
 };
-
-Item.defaultProps = {
-  onClick: () => {
-  },
-}
 
 export default React.memo(Item);
