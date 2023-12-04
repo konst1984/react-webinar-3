@@ -12,11 +12,11 @@ function Controls(props) {
     <div className='Controls'>
       <span>В корзине: </span>
       <span className={cn('value')}>
-        {props.countProducts ? `${props.countProducts} ${plural(props.countProducts, {
+        {props.totalPrice ? `${props.countProducts} ${plural(props.countProducts, {
           one: 'товар',
           few: 'товара',
           many: 'товаров'
-        })} /  ${formatterPrice.format(props.totalPrice)}` : 'пусто'}
+        })} / ${formatterPrice.format(props.totalPrice)}` : 'пусто'}
       </span>
       <div className={cn('action')}>
         <button onClick={() => props.onOpen(props.modalId)}>Перейти</button>
@@ -26,16 +26,13 @@ function Controls(props) {
 }
 
 Controls.propTypes = {
-  cart: PropTypes.arrayOf(PropTypes.shape({
-  price: PropTypes.number,
-  quantity: PropTypes.number
-})),
+  countProducts: PropTypes.number,
+  totalPrice: PropTypes.number,
   onOpen: PropTypes.func,
   modalId: PropTypes.string
 };
 
 Controls.defaultProps = {
-  cart: [],
   onOpen: () => {}
 }
 
