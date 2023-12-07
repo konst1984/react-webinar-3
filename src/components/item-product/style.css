@@ -1,0 +1,32 @@
+.Product-card *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.Product-card{
+  display: grid;
+  justify-items: flex-start;
+  gap:20px;
+  padding: 21px 40px;
+}
+
+.Product-text{
+  font-size: 18px;
+}
+
+.Product-text_bold,
+.Product-price{
+  font-weight: bold;
+}
+
+.Product-price{
+  display: flex;
+  gap: 13px;
+  font-size: 24px;
+}
+
+.Product-card button{
+  min-width: 76px;
+  font-size: 13px;
+}

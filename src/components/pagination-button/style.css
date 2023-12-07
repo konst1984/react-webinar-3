@@ -1,0 +1,24 @@
+.PagButton{
+	color: black;
+	background-color: white;
+	border: none;
+	outline: none;
+	min-width: 20px;
+	height: 20px;
+	font-size: 16px;
+}
+
+.PagButton:not(:disabled,.PagButton__active){
+	cursor: pointer;
+}
+
+.PagButton:hover,
+.PagButton:focus-visible{
+	color: black;
+	background-color: #E1E1E1;
+}
+
+.PagButton__active{
+	color: white;
+	background-color: #0087E9;
+}

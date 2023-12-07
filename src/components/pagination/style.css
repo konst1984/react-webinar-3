@@ -1,0 +1,8 @@
+.Pagination{
+	width: 100%;
+	display: flex;
+	padding: 23px 26px;
+	justify-content: end;
+	box-sizing: border-box;
+}
+

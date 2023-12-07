@@ -33,3 +33,15 @@ export function codeGenerator(start = 0) {
 export function numberFormat(value, locale = 'ru-RU', options = {}) {
   return new Intl.NumberFormat(locale, options).format(value);
 }
+
+export async function getProduct(url) {
+  try{
+    const res = await fetch(url)
+    if(!res.ok){
+      throw new Error('Ошибка данных')
+    }
+    return await res.json();
+  }catch (e) {
+    throw new Error(e.message)
+  }
+}

@@ -4,6 +4,7 @@
 
 .List-item {
   border-bottom: 1px dashed #ccc;
+  height: 60px;
 }
 
 .List-item:first-child {
