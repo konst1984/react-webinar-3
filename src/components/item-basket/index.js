@@ -17,7 +17,7 @@ function ItemBasket(props) {
   return (
     <div className={cn()}>
       {/*<div className={cn('code')}>{props.item._id}</div>*/}
-      <ProductLink id={props.item._id} >
+      <ProductLink path={props.path}>
         <div className={cn('title')}>
           {props.item.title}
         </div>
@@ -40,6 +40,7 @@ ItemBasket.propTypes = {
     price: PropTypes.number,
     amount: PropTypes.number
   }).isRequired,
+  path: PropTypes.string,
   onRemove: propTypes.func,
 }
 

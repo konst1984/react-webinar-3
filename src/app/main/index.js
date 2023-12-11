@@ -38,7 +38,7 @@ function Main() {
 
   const renders = {
     item: useCallback((item) => {
-      return <Item item={item} onAdd={callbacks.addToBasket}/>
+      return <Item item={item} onAdd={callbacks.addToBasket} path={`/articles/${item._id}`}/>
     }, [callbacks.addToBasket]),
     pagination: useCallback((item, index) => {
       return  <PaginationButton key={index} currentPage={currentPage} switchCurrentPage={callbacks.switchCurrentPage} item={item}/>

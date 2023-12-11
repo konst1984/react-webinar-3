@@ -3,3 +3,9 @@
 	text-decoration: none;
 	color: inherit;
 }
+
+.Product-link:hover,
+.Product-link:focus-visible{
+	text-decoration: underline;
+	text-underline-position: under;
+}

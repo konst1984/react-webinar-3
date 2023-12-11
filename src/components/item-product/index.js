@@ -1,27 +1,17 @@
-import React, {useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import React from 'react';
 import Product from "../../app/product";
-import {getProduct, numberFormat} from "../../utils";
+import {numberFormat} from "../../utils";
 import {cn as bem} from "@bem-react/classname";
 import PropTypes from "prop-types";
 import './style.css';
 
-const URL = (id) => `/api/v1/articles/${id}?fields=_id,title,description,price,edition,madeIn(title,code),category(title)`
 
 const ItemProduct = (props) => {
 
-  const {id} = useParams();
-
   const cn = bem('Product');
 
-  useEffect(() => {
-    getProduct(URL(id))
-      .then(data => props.setCurrentItem(data.result))
-  }, []);
-
-
   const callbacks = {
-    onAdd: () => props.onAdd(id)
+    onAdd: () => props.onAdd(props.currentItem._id)
   }
 
   if(!Object.values(props.currentItem).length){
@@ -56,14 +46,13 @@ ItemProduct.propTypes = {
     category: PropTypes.shape({
       title: PropTypes.string,
     }),
-  }).isRequired,
+  }),
   onAdd: PropTypes.func,
-  setCurrentItem: PropTypes.func
 };
 
 ItemProduct.defaultProps = {
   onAdd: () => {},
-  setCurrentItem: () => {}
+  currentItem: {}
 }
 
 

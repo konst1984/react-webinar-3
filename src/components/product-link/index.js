@@ -16,7 +16,7 @@ const ProductLink = (props) => {
   }
 
   return (
-    <Link to= {`/product/${props.id}`} className={cn()}  onClick={callbacks.closeModal}>
+    <Link to= {props.path} className={cn()}  onClick={callbacks.closeModal}>
       <div>
         {props.children}
       </div>
@@ -25,9 +25,9 @@ const ProductLink = (props) => {
 };
 
 ProductLink.propTypes ={
-  id: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  path: PropTypes.string,
 }
 
 export default ProductLink;
