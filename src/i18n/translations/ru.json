@@ -16,5 +16,13 @@
     "few": "товара",
     "many": "товаров",
     "other": "товара"
-  }
+  },
+  "loginForm.title": "Вход",
+  "loginForm.login": "Логин",
+  "loginForm.password": "Пароль",
+  "loginForm.submit": "Войти",
+  "profile.name" : "Имя:",
+  "profile.phone" : "Телефон:",
+  "authStatus.logout" : "Выход",
+  "authStatus.login" : "Вход"
 }

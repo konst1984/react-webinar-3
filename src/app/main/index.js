@@ -8,6 +8,7 @@ import Head from "../../components/head";
 import CatalogFilter from "../../containers/catalog-filter";
 import CatalogList from "../../containers/catalog-list";
 import LocaleSelect from "../../containers/locale-select";
+import AuthStatus from "../../components/auth-status";
 
 /**
  * Главная страница - первичная загрузка каталога
@@ -23,7 +24,7 @@ function Main() {
   const {t} = useTranslate();
 
   return (
-    <PageLayout>
+    <PageLayout head={<AuthStatus/>}>
       <Head title={t('title')}>
         <LocaleSelect/>
       </Head>

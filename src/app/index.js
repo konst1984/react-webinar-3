@@ -4,6 +4,8 @@ import useSelector from "../hooks/use-selector";
 import Main from "./main";
 import Basket from "./basket";
 import Article from "./article";
+import Profile from "./profile";
+import Login from "./login";
 
 /**
  * Приложение
@@ -17,6 +19,8 @@ function App() {
     <>
       <Routes>
         <Route path={''} element={<Main/>}/>
+        <Route path={'/login'} element={<Login/>}/>
+        <Route path={'/profile'} element={<Profile/>}/>
         <Route path={'/articles/:id'} element={<Article/>}/>
       </Routes>
 

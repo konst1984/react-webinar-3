@@ -1,0 +1,26 @@
+.LoginForm{
+	display: grid;
+	max-width: 203px;
+	gap: 20px;
+	padding: 35px 20px 20px;
+}
+
+.LoginForm-title{
+	font-size:24px;
+	font-weight: bold;
+}
+
+.LoginForm input{
+	height: 26px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.LoginForm-error{
+	color: #FF0000;
+}
+
+.LoginForm-submit{
+	height: 21px;
+	width: 53px;
+}
