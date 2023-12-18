@@ -8,20 +8,33 @@ import Navigation from "../../containers/navigation";
 import useStore from "../../hooks/use-store";
 import useSelector from "../../hooks/use-selector";
 import AuthStatus from "../../components/auth-status";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
 
   const store = useStore();
+  const navigate = useNavigate();
 
   const {t} = useTranslate();
 
   const select = useSelector(state => ({
-    error: state.auth.error
+    error: state.auth.error,
+    token: state.auth.token
   }));
-
+console.log(select.token)
   const callbacks = {
-    signIn: useCallback((login, password) => store.actions.auth.signIn(login, password), [store]),
+    signIn: useCallback((login, password) => {
+      store.actions.auth.signIn(login, password)
+    }, [store]),
+    resetError: () => store.actions.auth.resetError()
   }
+
+  useEffect(() =>{
+    callbacks.resetError()
+    if (select.token) {
+      navigate(-1)
+    }
+  },[select.token])
 
   return (
     <PageLayout head={<AuthStatus/>}>

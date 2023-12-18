@@ -22,6 +22,7 @@ const AuthStatus = () => {
   const callbacks = {
     signOut: (e) => {
       store.actions.auth.signOut()
+      store.actions.profile.resetData()
     },
   }
 

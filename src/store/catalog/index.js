@@ -21,7 +21,6 @@ class CatalogState extends StoreModule {
         category: '',
       },
       count: 0,
-      categories: [],
       waiting: false
     }
   }
@@ -40,7 +39,6 @@ class CatalogState extends StoreModule {
     if (urlParams.has('sort')) validParams.sort = urlParams.get('sort');
     if (urlParams.has('query')) validParams.query = urlParams.get('query');
     if (urlParams.has('category')) validParams.category = urlParams.get('category');
-    await this.setCategories();
     await this.setParams({...this.initState().params, ...validParams, ...newParams}, true);
   }
 
@@ -86,8 +84,7 @@ class CatalogState extends StoreModule {
       skip: (params.page - 1) * params.limit,
       fields: 'items(*),count',
       sort: params.sort,
-      'search[query]': params.query,
-      'search[category]': params.category,
+      'search[query]': params.query
     };
     if (!params.category) delete apiParams['search[category]'];
 
